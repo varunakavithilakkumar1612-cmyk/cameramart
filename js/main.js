@@ -329,7 +329,6 @@ function renderCartPage() {
       const product = getProductById(item.id);
       if (!product) return '';
 
-      const isWishlisted = getWishlist().includes(product.id);
       const lineTotal = product.price * item.quantity;
 
       return `
@@ -352,9 +351,6 @@ function renderCartPage() {
           <div class="cart-icons">
             <button type="button" class="remove-btn" data-remove-item="${product.id}" aria-label="Remove product">
               <i class="fa-regular fa-rectangle-xmark"></i>
-            </button>
-            <button type="button" class="wishlist-button ${isWishlisted ? 'active' : ''}" data-wishlist="${product.id}" aria-label="Add to wishlist">
-              <i class="fa-solid fa-heart"></i>
             </button>
           </div>
         </div>
